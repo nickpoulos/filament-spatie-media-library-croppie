@@ -1,7 +1,7 @@
 # Filament Croppie Plugin
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/nuhel/filament-croppie.svg?style=flat-square)](https://packagist.org/packages/nuhel/filament-croppie)
-[![Total Downloads](https://img.shields.io/packagist/dt/nuhel/filament-croppie.svg?style=flat-square)](https://packagist.org/packages/nuhel/filament-croppie)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/josefbehr/filament-spatie-media-library-croppie.svg?style=flat-square)](https://packagist.org/packages/josefbehr/filament-spatie-media-library-croppie)
+[![Total Downloads](https://img.shields.io/packagist/dt/josefbehr/filament-spatie-media-library-croppie.svg?style=flat-square)](https://packagist.org/packages/josefbehr/filament-spatie-media-library-croppie)
 
 
 ## Installation
