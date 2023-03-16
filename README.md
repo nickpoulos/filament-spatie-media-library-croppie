@@ -1,4 +1,4 @@
-# Filament Croppie Plugin
+# Filament Spatie Media Library Croppie Plugin
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/josefbehr/filament-spatie-media-library-croppie.svg?style=flat-square)](https://packagist.org/packages/josefbehr/filament-spatie-media-library-croppie)
 [![Total Downloads](https://img.shields.io/packagist/dt/josefbehr/filament-spatie-media-library-croppie.svg?style=flat-square)](https://packagist.org/packages/josefbehr/filament-spatie-media-library-croppie)
@@ -65,7 +65,7 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 
 ## Acknowldgements
 
-This if a fork of [nuhel/FilamentCroppie](https://github.com/nuhel/FilamentCroppie) extended and adapted to use spatie/media-library and install croppie via npm.
+This started as a fork of [nuhel/FilamentCroppie](https://github.com/nuhel/FilamentCroppie), extended and adapted to use spatie/media-library and install croppie via npm.
 
 ## Changelog
 2023-03-16
