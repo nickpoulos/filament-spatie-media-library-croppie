@@ -29,7 +29,7 @@
 
         <div
             x-data="fileUploadFormComponent({
-            acceptedFileTypes: {{ json_encode($getAcceptedFileTypes()) }},
+            acceptedFileTypes: {{ json_encode($getAcceptedFileTypes(), JSON_THROW_ON_ERROR) }},
             canDownload: {{ $canDownload() ? 'true' : 'false' }},
             canOpen: {{ $canOpen() ? 'true' : 'false' }},
             canPreview: {{ $canPreview() ? 'true' : 'false' }},
@@ -101,8 +101,6 @@
             $uniquemodalevent = \Illuminate\Support\Str::of($getStatePath())->replace('.','')->replace('_','');
         @endphp
 
-
-
         <input
             {{ $isDisabled() ? 'disabled' : '' }}
             type="file"
@@ -121,9 +119,9 @@
                 var fileType = event.target.files[0]['type'];
                 if (!(fileType.search(`image`) >= 0)) {
                     new Notification()
-                    .title('Error')
+                    .title('{{ __('filament-spatie-media-library-croppie::error') }}')
                         .danger()
-                        .body('Selected file is not an valid image')
+                        .body('{{ __('filament-spatie-media-library-croppie::invalid') }}')
                         .send()
                         return;
                 }
@@ -140,28 +138,32 @@
     <div x-data="{files:null,}" @on-croppie-modal-show-{{ $uniquemodalevent }}.window="
             files = $event.detail.files;
             id = $event.detail.id;
-            $dispatch('open-modal', {id: id})
-        ">
+            $dispatch('open-modal', {id: id})"
+            class="h-0"
+    >
         <x-filament::modal
             class=""
             width="{{$getModalSize()}}"
 
             id="croppie-modal-{{ $getStatePath() }}"
         >
+            @if ($hasModalHeading())
             <x-slot name="heading">
                 <x-filament::modal.heading>
                     {{$getModalHeading()}}
                 </x-filament::modal.heading>
             </x-slot>
-            <div class=" z-5 w-full h-full flex flex-col justify-between"
+            @endif
 
+            <div class=" z-5 w-full h-full flex flex-col justify-between"
                  x-data="imageCropper({
                         imageUrl: '',
                         shape: `{{$isAvatar()?'circle':'square'}}`,
                         files: files,
-                        width: `{{$getImageResizeTargetWidth()}}`,
-                        height: `{{$getImageResizeTargetHeight()}}`,
-                        statePath : `{{$getStatePath()}}`
+                        viewportWidth: `{{$getImageResizeTargetWidth()}}`,
+                        viewportHeight: `{{$getImageResizeTargetHeight()}}`,
+                        statePath: `{{$getStatePath()}}`,
+                        showZoomer: `{{$getShowZoomer()}}`
 
                     })" x-cloak
             >
@@ -171,8 +173,6 @@
                         <div  x-on:click.prevent class="bg-transparent h-full">
                             <div class="m-auto flex-col" x-ref="croppie"></div>
                             <div class="flex justify-center gap-2 pb-2">
-
-
                                 @if ($isLeftRotationEnabled())
                                     <x-filament::button class="px-2" type="button"  x-on:click.prevent="rotateLeft()">
                                         <svg class="filament-button-icon w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -188,34 +188,24 @@
                                     </svg>
                                 </x-filament::button>
                                 @endif
-
-
-
-
                             </div>
-
                         </div>
 
                         <div x-show="!showCroppie" class="absolute top-0 left-0 w-full h-full bg-white z-10 flex items-center justify-center">
-
-                            <div aria-label="Loading..." role="status" class="flex items-center space-x-2">
-                                <span class="text-xs font-medium text-gray-500">Loading...</span>
+                            <div aria-label="{{ __('filament-spatie-media-library-croppie::loading') }}" role="status" class="flex items-center space-x-2">
+                                <span class="text-xs font-medium text-gray-500">{{ __('filament-spatie-media-library-croppie::loading') }}</span>
                             </div>
                         </div>
 
                     </div>
                 </div>
 
-
                 <div class="flex justify-center items-center gap-2">
                     <x-filament::button type="button"  x-on:click.prevent="saveCroppie()">
                         @lang('filament::resources/pages/edit-record.form.actions.save.label')
                     </x-filament::button>
                 </div>
-
             </div>
-
-
         </x-filament::modal>
     </div>
 

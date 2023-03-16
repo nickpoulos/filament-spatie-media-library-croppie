@@ -1,3 +1,5 @@
+import '../../../../../node_modules/croppie/croppie.min'
+
 document.addEventListener('alpine:init', () => {
     Alpine.data('imageCropper', (config) => ({
         showCroppie: false,
@@ -5,10 +7,11 @@ document.addEventListener('alpine:init', () => {
         filename: '',
         filetype: '',
         originalSrc: config.imageUrl,
-        width: config.width,
-        height:config.height,
+        viewportWidth: config.viewportWidth,
+        viewportHeight: config.viewportHeight,
         shape: config.shape,
         statePath: config.statePath,
+        showZoomer: config.showZoomer,
 
         croppie: {},
         init() {
@@ -41,8 +44,8 @@ document.addEventListener('alpine:init', () => {
 
             this.croppie = new Croppie(
                 this.$refs.croppie, {
-                    viewport: {width: this.width, height: this.height, type: this.shape}, //circle or square
-                    boundary: {width: this.width, height: this.height}, //default boundary container
+                    viewport: {width: this.viewportWidth, height: this.viewportHeight, type: this.shape}, //circle or square
+                    boundary: {width: 800, height: 400}, //default boundary container
                     showZoomer: true,
                     enableResize: false,
                     mouseWheelZoom: 'ctrl',

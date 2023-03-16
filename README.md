@@ -6,50 +6,69 @@
 
 ## Installation
 
-You can install the package via composer:
+You can install the package via composer and don't forget to install croppie itself, if you have not done so already:
 
 ```bash
-composer require nuhel/filament-croppie
+composer require josefbehr/filament-spatie-media-library-croppie
+npm install croppie
 ```
 
-This field has most of the same functionality of the [Filament File Upload](https://filamentphp.com/docs/2.x/forms/fields#file-upload) field.
-
-![screenshot of square croppie](./images/square-example.png)
-```php
-  Croppie::make('image')
-      ->getUploadedFileNameForStorageUsing(function (TemporaryUploadedFile $file): string {
-          return (string)str("image_path/" . $file->hashName());
-      })->enableDownload()
-      ->enableOpen()
-      ->imageResizeTargetWidth('1000')
-      ->imageResizeTargetHeight('800'),
+To use outside filament (e.g. with just the forms package), add the js and css to your vite (or mix) config:
+```html
+@vite([
+    'vendor/josefbehr/filament-spatie-media-library-croppie/resources/dist/js/filament-spatie-media-library-croppie.js',
+    'vendor/josefbehr/filament-spatie-media-library-croppie/resources/dist/css/filament-spatie-media-library-croppie.css',
+    ...
+])
 ```
-Using `imageResizeTargetWidth` and `imageResizeTargetHeight` we can set width and height of the cropper.
+
+This field extends and therefore has all the functionality of the [Filament Spatie Media Library Plugin](https://filamentphp.com/docs/2.x/spatie-laravel-media-library-plugin/installation) field.
 
 ```php
-Croppie::make('avatar')->avatar()
-    ->enableOpen()->enableDownload()
-    ->imageResizeTargetWidth('300')
-    ->imageResizeTargetHeight('300')
-    ->modalSize('xl'),
+SpatieMediaLibraryCroppie::make('image')
+    ->boundaryWidth('800')
+    ->boundaryHeight('800'),
+```
+Use `boundaryWidth` and `boundaryHeight` to set width and height of the image area in the modal. The values above are the defaults.
+
+```php
+SpatieMediaLibraryCroppie::make('image')
+    ->viewportWidth('400')
+    ->viewportHeight('400'),
+```
+Use `viewportWidth` and `viewportHeight` to set width and height of the cropper itself. Values above are the defaults.
+
+```
+SpatieMediaLibraryCroppie::make('image')
+    ->showZoomer(),
+```
+
+`showZoomer` can be called to show the zoom bar below the image in the modal.
+
+```php
+SpatieMediaLibraryCroppie::make('avatar')
+    ->avatar(),
 ```
 We can make croppie circular using `avater` method.
-![screenshot of big modal](./images/circural-example.png)
-
-Modal size can be customized if it is needed,
-using `modalSize` method.
 ```php
 Croppie::make('background')
-    ->enableDownload()
-    ->enableOpen()
-    ->imageResizeTargetWidth('1000')
-    ->imageResizeTargetHeight('400')
     ->modalSize('6xl')
     ->modalHeading("Crop Background Image")
 ```
-![screenshot of big modal](./images/7xl-modal-example.png)
 
-This Plugin is still under development. Some Croppie Feature need's to be implemented, but it provides the main feature of Croppie.  
+Modal size can be customized using `modalSize` method.
+For setting the heading use `modalHeading`.
+
 ## License
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
+
+## Acknowldgements
+
+This if a fork of [nuhel/FilamentCroppie](https://github.com/nuhel/FilamentCroppie) extended and adapted to use spatie/media-library and install croppie via npm.
+
+## Changelog
+2023-03-16
+* fork `nuhel/filament-croppie` and rename everything, extend spatie plugin form filed
+* remove croppie css and js and re-import them from `node_modules`
+* add viewportWidth/Height and boundaryWidth/Height methods
