@@ -26,8 +26,8 @@ This field extends and therefore has all the functionality of the [Filament Spat
 
 ```php
 SpatieMediaLibraryCroppie::make('image')
-    ->boundaryWidth('800')
-    ->boundaryHeight('800'),
+    ->boundaryWidth('100%')
+    ->boundaryHeight('600'),
 ```
 Use `boundaryWidth` and `boundaryHeight` to set width and height of the image area in the modal. The values above are the defaults.
 
