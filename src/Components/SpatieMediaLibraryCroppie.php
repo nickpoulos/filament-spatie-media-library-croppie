@@ -13,7 +13,7 @@ class SpatieMediaLibraryCroppie extends SpatieMediaLibraryFileUpload
 
     protected string | Closure | null $viewportWidth = '400';
 
-    protected string | Closure | null $boundaryHeight = '800';
+    protected string | Closure | null $boundaryHeight = '600';
 
     protected string | Closure | null $boundarywidth = '100%';
 

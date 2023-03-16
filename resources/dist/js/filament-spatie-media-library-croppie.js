@@ -9,6 +9,8 @@ document.addEventListener('alpine:init', () => {
         originalSrc: config.imageUrl,
         viewportWidth: config.viewportWidth,
         viewportHeight: config.viewportHeight,
+        boundaryWidth: config.boundaryWidth,
+        boundaryHeight: config.boundaryHeight,
         shape: config.shape,
         statePath: config.statePath,
         showZoomer: config.showZoomer,
@@ -27,7 +29,7 @@ document.addEventListener('alpine:init', () => {
         },
         async updatePreview()  {
             let reader, files = this.files
-            if( files == null ||files[0] == undefined){
+            if( files == null || files[0] === undefined ) {
                 return;
             }
             this.filename = files[0].name;
@@ -45,8 +47,8 @@ document.addEventListener('alpine:init', () => {
             this.croppie = new Croppie(
                 this.$refs.croppie, {
                     viewport: {width: this.viewportWidth, height: this.viewportHeight, type: this.shape}, //circle or square
-                    boundary: {width: 800, height: 400}, //default boundary container
-                    showZoomer: true,
+                    boundary: {width: this.boundaryWidth, height: this.boundaryHeight}, //default boundary container
+                    showZoomer: this.showZoomer,
                     enableResize: false,
                     mouseWheelZoom: 'ctrl',
                     enforceBoundary: true,

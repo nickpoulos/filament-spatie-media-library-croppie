@@ -160,8 +160,10 @@
                         imageUrl: '',
                         shape: `{{$isAvatar()?'circle':'square'}}`,
                         files: files,
-                        viewportWidth: `{{$getImageResizeTargetWidth()}}`,
-                        viewportHeight: `{{$getImageResizeTargetHeight()}}`,
+                        viewportWidth: `{{$getViewportWidth()}}`,
+                        viewportHeight: `{{$getViewportHeight()}}`,
+                        boundaryWidth: `{{$getBoundaryWidth()}}`,
+                        boundaryHeight: `{{$getBoundaryHeight()}}`,
                         statePath: `{{$getStatePath()}}`,
                         showZoomer: `{{$getShowZoomer()}}`
 
