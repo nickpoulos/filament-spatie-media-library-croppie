@@ -6,11 +6,10 @@
 
 ## Installation
 
-You can install the package via composer and don't forget to install croppie itself, if you have not done so already:
+You can install the package via composer (no need to install croppie as well as its assets are bundled):
 
 ```bash
 composer require josefbehr/filament-spatie-media-library-croppie
-npm install croppie
 ```
 
 To use outside filament (e.g. with just the forms package), add the js and css to your vite (or mix) config:
@@ -68,7 +67,10 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 This started as a fork of [nuhel/FilamentCroppie](https://github.com/nuhel/FilamentCroppie), extended and adapted to use spatie/media-library and install croppie via npm.
 
 ## Changelog
-2023-03-16
+v1.0.3
+* re-bundle croppie assets with plugin assets as it does not seem to work otherwise in some cases
+
+v1.0.0
 * fork `nuhel/filament-croppie` and rename everything, extend spatie plugin form filed
 * remove croppie css and js and re-import them from `node_modules`
 * add viewportWidth/Height and boundaryWidth/Height methods

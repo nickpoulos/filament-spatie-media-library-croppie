@@ -1,0 +1,13 @@
+{
+    "name": "filament-spatie-media-library-croppie",
+    "scripts": {
+        "build:css": "node-sass resources/css/filament-spatie-media-library-croppie.css resources/dist/css/filament-spatie-media-library-croppie.css --output-style compressed --importer node_modules/node-sass-import",
+        "build:js": "esbuild resources/js/filament-spatie-media-library-croppie.js --bundle --minify --outfile=resources/dist/js/filament-spatie-media-library-croppie.js"
+    },
+    "devDependencies": {
+        "croppie": "^2.6.5",
+        "node-sass": "^8.0.0",
+        "node-sass-import": "^2.0.1",
+        "esbuild": "^0.17.12"
+    }
+}

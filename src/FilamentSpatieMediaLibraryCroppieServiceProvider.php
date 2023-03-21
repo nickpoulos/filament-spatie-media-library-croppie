@@ -7,7 +7,7 @@ use Spatie\LaravelPackageTools\Package;
 
 class FilamentSpatieMediaLibraryCroppieServiceProvider extends PluginServiceProvider
 {
-    public static string $name = 'filament-croppie';
+    public static string $name = 'filament-spatie-media-library-croppie';
 
     protected array $styles = [
         'filament-spatie-media-library-croppie-style' =>

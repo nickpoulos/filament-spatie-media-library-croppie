@@ -1,0 +1,15 @@
+@import "croppie/croppie.css";
+
+.croppie-image-picker {
+    position: absolute;
+    top: 0;
+    height: 2.625em;
+    opacity: 0;
+}
+
+.croppie-image-picker.avatar {
+    left: 50%;
+    transform: translateX(-50%);
+    height: 128px;
+    border-radius: 99999rem;
+}
