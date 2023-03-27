@@ -37,7 +37,7 @@ SpatieMediaLibraryCroppie::make('image')
 ```
 Use `viewportWidth` and `viewportHeight` to set width and height of the cropper itself. Values above are the defaults.
 
-```
+```php
 SpatieMediaLibraryCroppie::make('image')
     ->showZoomer(),
 ```
