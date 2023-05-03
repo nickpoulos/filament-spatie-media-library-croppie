@@ -27,6 +27,10 @@ class SpatieMediaLibraryCroppie extends SpatieMediaLibraryFileUpload
 
     protected bool | Closure $showZoomer = false;
 
+    protected string | Closure $imageFormat = 'png';
+
+    protected float | Closure $imageQuality = 0.9;
+
     public function getAcceptedFileTypes(): ?array
     {
         $this->acceptedFileTypes([
@@ -159,5 +163,29 @@ class SpatieMediaLibraryCroppie extends SpatieMediaLibraryFileUpload
     public function getBoundaryWidth(): string
     {
         return $this->evaluate($this->boundarywidth);
+    }
+
+    public function imageFormat(string | Closure $imageFormat = 'png'): static
+    {
+        $this->imageFormat = $imageFormat;
+
+        return $this;
+    }
+
+    public function getImageFormat(): string
+    {
+        return $this->evaluate($this->imageFormat);
+    }
+
+    public function imageQuality(float | Closure $imageQuality = 0.9): static
+    {
+        $this->imageQuality = $imageQuality;
+
+        return $this;
+    }
+
+    public function getImageQuality(): float
+    {
+        return $this->evaluate($this->imageQuality);
     }
 }

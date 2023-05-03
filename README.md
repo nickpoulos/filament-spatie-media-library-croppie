@@ -58,6 +58,17 @@ Croppie::make('background')
 Modal size can be customized using `modalSize` method.
 For setting the heading use `modalHeading`.
 
+### Set image quality and format
+If your cropped images are very large (see: [https://github.com/Foliotek/Croppie/issues/444]), you can use the `imageFormat()` and `imageQuality()` methods to modify the resulting image.
+```php
+SpatieMediaLibraryCroppie::make('image')
+    ->imageFormat('jpeg')
+    ->imageQUality(0.7);
+```
+Defaults are:
+* `imageQuality(0.9)`
+* `imageFormat('png')`
+
 ## License
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
@@ -67,6 +78,9 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 This started as a fork of [nuhel/FilamentCroppie](https://github.com/nuhel/FilamentCroppie), extended and adapted to use spatie/media-library and install croppie via npm.
 
 ## Changelog
+v1.0.4
+* add imageFormat and imageQuality options/methods
+* 
 v1.0.3
 * re-bundle croppie assets with plugin assets as it does not seem to work otherwise in some cases
 

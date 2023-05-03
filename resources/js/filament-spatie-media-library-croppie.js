@@ -14,6 +14,8 @@ document.addEventListener('alpine:init', () => {
         shape: config.shape,
         statePath: config.statePath,
         showZoomer: config.showZoomer,
+        format: config.format,
+        quality: config.quality,
 
         croppie: {},
         init() {
@@ -53,7 +55,9 @@ document.addEventListener('alpine:init', () => {
                     mouseWheelZoom: 'ctrl',
                     enforceBoundary: true,
                     enableOrientation: true,
-                    enableExif: true
+                    enableExif: true,
+                    format: this.format,
+                    quality: this.quality
                 })
         },
 

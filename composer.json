@@ -1,6 +1,7 @@
 {
     "name": "josefbehr/filament-spatie-media-library-croppie",
     "description": "A filament form field for image upload using spatie media library and croppie.js",
+    "version": "1.0.4",
     "keywords": [
         "laravel",
         "filament",

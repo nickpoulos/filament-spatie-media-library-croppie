@@ -18,6 +18,8 @@
         $imageResizeTargetWidth = $getImageResizeTargetWidth();
         $imageResizeMode = $getImageResizeMode();
         $shouldTransformImage = $imageCropAspectRatio || $imageResizeTargetHeight || $imageResizeTargetWidth;
+        $imageFormat = $getImageFormat();
+        $imageQuality = $getImageQuality();
     @endphp
 
 
@@ -165,8 +167,9 @@
                         boundaryWidth: `{{$getBoundaryWidth()}}`,
                         boundaryHeight: `{{$getBoundaryHeight()}}`,
                         statePath: `{{$getStatePath()}}`,
-                        showZoomer: `{{$getShowZoomer()}}`
-
+                        showZoomer: `{{$getShowZoomer()}}`,
+                        format: `{{$imageFormat}}`,
+                        quality: `{{$imageQuality}}`
                     })" x-cloak
             >
                 <div class="h-full w-full" wire:ignore >
