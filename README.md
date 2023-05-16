@@ -63,7 +63,7 @@ If your cropped images are very large (see: [https://github.com/Foliotek/Croppie
 ```php
 SpatieMediaLibraryCroppie::make('image')
     ->imageFormat('jpeg')
-    ->imageQUality(0.7);
+    ->imageQuality(0.7);
 ```
 Defaults are:
 * `imageQuality(0.9)`
@@ -80,7 +80,7 @@ This started as a fork of [nuhel/FilamentCroppie](https://github.com/nuhel/Filam
 ## Changelog
 v1.0.4
 * add imageFormat and imageQuality options/methods
-* 
+
 v1.0.3
 * re-bundle croppie assets with plugin assets as it does not seem to work otherwise in some cases
 
