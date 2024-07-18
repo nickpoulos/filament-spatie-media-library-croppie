@@ -28,7 +28,7 @@
     ],
     "require": {
         "php": "^8.0",
-        "filament/spatie-laravel-media-library-plugin": "^2.0",
+        "filament/spatie-laravel-media-library-plugin": "^3.0",
         "spatie/laravel-medialibrary": "^10"
     },
     "extra": {
